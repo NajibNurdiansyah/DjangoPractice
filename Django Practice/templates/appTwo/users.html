@@ -15,6 +15,44 @@
       crossorigin="anonymous"
     ></script>
     <title>Users</title>
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 2em;
+        color: #007bff;
+      }
+
+      .container {
+        max-width: 500px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-top: 50px;
+      }
+
+      form {
+        margin-top: 20px;
+      }
+
+      .btn-primary {
+        width: 100%;
+      }
+
+      ol, ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      li {
+        padding: 5px 0;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
@@ -25,16 +63,21 @@
       </form>
     </div>
     {% comment %} {% if users %}
-    <ol>
-      {% for person in users %}
-      <li>User Info</li>
-      <ul>
-        <li>First Name: {{ person.first_name }}</li>
-        <li>Last Name: {{ person.last_name }}</li>
-        <li>email: {{ person.email }}</li>
-      </ul>
-      {% endfor %}
-    </ol>
+    <div class="container mt-4">
+      <h2>Registered Users</h2>
+      <ol>
+        {% for person in users %}
+        <li>
+          <strong>User Info</strong>
+          <ul>
+            <li>First Name: {{ person.first_name }}</li>
+            <li>Last Name: {{ person.last_name }}</li>
+            <li>Email: {{ person.email }}</li>
+          </ul>
+        </li>
+        {% endfor %}
+      </ol>
+    </div>
     {% endif %} {% endcomment %}
   </body>
 </html>
